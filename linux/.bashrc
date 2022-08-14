@@ -12,11 +12,17 @@ esac
 #############################
 ###### Custom Things ########
 #############################
+# NVIM path 
+if [-h '/usr/local/bin/nvim']; then 
+    alias nvim '/usr/bin/nvim'
+fi
+
+
 neofetch --ascii_distro ubuntu
 alias rs='rescuetime'
 
 UpdateLinuxSetupScripts() {
-	cd ~/linux-setup-scripts
+	cd ~/Linux-Setup-Scripts/linux
 	git pull
 	./mvBash.sh
 	echo "Pulling updates from latest .bashrc file stored at https://github.com/andrew-pynch/linux-setup-scripts"
@@ -176,7 +182,7 @@ alias bse='vim ~/.bashrc'
 alias sshosu="ssh 'pyncha@oregonstate.edu'@flip.engr.oregonstate.edu"
 alias sshmag="ssh hzyj10@dcwipphhgc013.edc.nam.gm.com"
 alias gmf="cd /mnt/c/Users/HZYJ10/Git/GM" 
-alias pgf="cd ~/.Github"
+alias pgf="cd ~/Github"
 alias peg="cd /mnt/e/Github"
 alias start='/mnt/c/Windows/System32/cmd.exe /c "start ."'
 alias clr='rm -rf *'
