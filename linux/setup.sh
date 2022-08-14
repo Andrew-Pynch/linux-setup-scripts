@@ -32,8 +32,17 @@ git config --global user.name "Andrew Pynch"
 sudo apt install neofetch
 sudo apt install toilet
 sudo apt install cowsay
+sudo apt install nemo # file explorer 
+# Install Brave Browser 
+sudo apt install apt-transport-https curl
 
-sudo apt install sl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
 
 # Set some custom linux settings
 xset r rate 280 70 # 280ms delay, 70 key repeats / sec
@@ -49,3 +58,6 @@ xdg-open https://gist.github.com/jph00/0762f8d49c807b608f6efd69d6862bee
 
 cp .bashrc ~/.bashrc -f
 src ~/.bashrc
+
+
+
