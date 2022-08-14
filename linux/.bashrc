@@ -309,3 +309,7 @@ CloneAndrewRepo() {
 	git clone 'https://github.com/andrew-pynch/'$1
 	cd $1
 }
+
+# BUN 
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
