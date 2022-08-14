@@ -33,7 +33,6 @@ sudo apt install neofetch
 sudo apt install toilet
 sudo apt install cowsay
 
-sudo apt-get install chromium-browser
 sudo apt install sl
 
 # Set some custom linux settings
