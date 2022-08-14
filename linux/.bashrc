@@ -180,7 +180,6 @@ alias templ-disabled='/home/andrew/Github/Ishiiruka/build/Binaries/dolphin-emu'
 alias dol='dolphin-emu'
 alias bse='vim ~/.bashrc'
 alias sshosu="ssh 'pyncha@oregonstate.edu'@flip.engr.oregonstate.edu"
-alias sshmag="ssh hzyj10@dcwipphhgc013.edc.nam.gm.com"
 alias gmf="cd /mnt/c/Users/HZYJ10/Git/GM" 
 alias pgf="cd ~/Github"
 alias peg="cd /mnt/e/Github"
@@ -232,6 +231,14 @@ alias inr='InitNewRepo'
 alias grh='ResetCommitHash'
 alias gbdl='GitBranchDeleteLocal'
 alias gbdo='GitBranchDeleteOrigin'
+alias editbashrc='nvim ~/Linux-Setup-Scripts/linux/.bashrc'
+alias srcbashrc='source ~/.bashrc'
+alias reseti3="ResetI3"
+
+ResetI3() {
+    i3-msg reload 
+    i3-msg restart
+}
 
 GitBranchDeleteLocal() {
     git branch -d $1
@@ -263,46 +270,6 @@ ResetCommitHash() {
     git reset --soft HEAD@{1}
     git commit -a -m "Revert head..."
     git push
-}
-
-ShowAliases() {
-echo "alias gomass='cd /media/andrew/mass/Github'
-alias jl='jupyter-lab'
-alias jn='jupyter-notebook'
-alias fs='xdg-open .'
-alias templ-disabled='/home/andrew/Github/Ishiiruka/build/Binaries/dolphin-emu'
-alias dol='dolphin-emu'
-alias bse='vim ~/.bashrc'
-alias sshosu='"ssh 'pyncha@oregonstate.edu'@flip.engr.oregonstate.edu"'
-alias cpp='cd /mnt/c/Users/apynch/Github/CPP'
-alias pgf='cd /mnt/d/Github'
-alias start='/mnt/c/Windows/System32/cmd.exe /c "start ."'
-alias clr='rm -rf *'
-
-# Misc Asliases
-# =============
-alias lsl='ls -l'
-
-# Git Aliases
-# ===========
-alias gcl='CloneAndrewRepo'
-alias gpl='git pull'
-alias gaa='git add --all'
-alias gam='git commit -a -m'
-alias gpu='git push'
-alias gba='git branch -a'
-alias gb='git branch'
-alias gc='git checkout'
-alias gbgc='BranchAndCheckout'
-alias gm='git merge'
-alias gpsu='PushBranchSetUpstream'
-alias gl='git log'
-alias gsa='git stash --all'
-alias gbsc='git branch --show-current'
-alias sa='ShowAliases'
-alias inr='InitNewRepo'
-alias grh='ResetCommitHash'"
-}
 
 # Clone a repo of a given name from my github
 CloneAndrewRepo() {
@@ -322,4 +289,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # Wallpapers 
 echo "Setting Wallpaper"
-feh --bg-fill ~/Linux-Setup-Scripts/wallpapers/mha_best_girl.jpg
+feh --bg-fill "~/Linux-Setup-Scripts/wallpapers/mha_best_girl.jpg"

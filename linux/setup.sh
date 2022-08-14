@@ -60,5 +60,6 @@ xdg-open https://gist.github.com/jph00/0762f8d49c807b608f6efd69d6862bee
 cp .bashrc ~/.bashrc -f
 src ~/.bashrc
 
+pip install --user bumblebee-status
 
 
