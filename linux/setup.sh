@@ -24,6 +24,7 @@ AnacondaSetup
 
 
 # Other programs
+sudo apt install i3
 sudo snap install --classic code
 sudo apt install git
 sudo snap install discord
