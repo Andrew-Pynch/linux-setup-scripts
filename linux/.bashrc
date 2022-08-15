@@ -204,6 +204,7 @@ alias wthr='curl wttr.in'
 alias ubrc='UpdateBashRC'
 alias govids='cd /mnt/d/Video'
 alias mkvid='MakeVideo'
+alias mono='cd ~/Github/PX_Mono'
 
 UpdateBashRC() {
     cd ~/linux-setup-scripts 
