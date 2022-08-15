@@ -2,11 +2,26 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
+
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+# CUSTOM PATH 
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# export yarn path 
+export PATH="$HOME/.yarn/bin:$PATH"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source ~/.nvm/.nvm.sh
+echo "NVM Loaded"
+nvm use default
 
 
 #############################
@@ -277,16 +292,15 @@ CloneAndrewRepo() {
 	cd $1
 }
 
-# CUSTOM PATH 
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# export yarn path 
-export PATH="$HOME/.yarn/bin:$PATH"
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
 # Wallpapers 
 echo "Setting Wallpaper"
 feh --bg-fill "~/Linux-Setup-Scripts/wallpapers/mha_best_girl.jpg"
+
+# Export custom prompt 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+echo "EXPORTING PS1"
+export PS1="\[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$ "
