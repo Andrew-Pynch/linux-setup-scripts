@@ -285,6 +285,7 @@ ResetCommitHash() {
     git reset --soft HEAD@{1}
     git commit -a -m "Revert head..."
     git push
+}
 
 # Clone a repo of a given name from my github
 CloneAndrewRepo() {
