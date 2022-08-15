@@ -303,5 +303,4 @@ feh --bg-fill "~/Linux-Setup-Scripts/wallpapers/mha_best_girl.jpg"
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-echo "EXPORTING PS1"
-export PS1="\[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$ "
+export PS1="\[\033[38;5;41m\]\w\[$(tput sgr0)\]:\[\033[38;5;63m\](parse_git_branch)\[$(tput sgr0)\]$\[$(tput sgr0)\] "
