@@ -205,6 +205,12 @@ alias ubrc='UpdateBashRC'
 alias govids='cd /mnt/d/Video'
 alias mkvid='MakeVideo'
 alias mono='cd ~/Github/PX_Mono'
+alias kp='KillPort'
+
+KillPort() {
+    local pid = sudo lsof -t -i:$1
+    sudo kill -9 $pid
+}
 
 UpdateBashRC() {
     cd ~/linux-setup-scripts 
@@ -250,6 +256,15 @@ alias gbdo='GitBranchDeleteOrigin'
 alias editbashrc='nvim ~/Linux-Setup-Scripts/linux/.bashrc'
 alias srcbashrc='source ~/.bashrc'
 alias reseti3="ResetI3"
+alias napifold="NewApiFolder"
+
+NewApiFolder() {
+    mkdir $1 
+    cd $1 
+    touch $1Helpers.ts 
+    touch $1Requests.ts 
+    touch $1Schema.ts 
+}
 
 ResetI3() {
     i3-msg reload 
@@ -293,12 +308,6 @@ CloneAndrewRepo() {
 	git clone 'https://github.com/andrew-pynch/'$1
 	cd $1
 }
-
-
-
-# Wallpapers 
-echo "Setting Wallpaper"
-feh --bg-fill "~/Linux-Setup-Scripts/wallpapers/mha_best_girl.jpg"
 
 # Export custom prompt 
 parse_git_branch() {
