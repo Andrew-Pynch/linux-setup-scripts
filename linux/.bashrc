@@ -258,6 +258,7 @@ alias srcbashrc='source ~/.bashrc'
 alias reseti3="ResetI3"
 alias napifold="NewApiFolder"
 
+
 NewApiFolder() {
     mkdir $1 
     cd $1 
