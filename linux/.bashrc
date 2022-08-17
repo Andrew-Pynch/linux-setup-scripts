@@ -206,6 +206,7 @@ alias govids='cd /mnt/d/Video'
 alias mkvid='MakeVideo'
 alias mono='cd ~/Github/PX_Mono'
 alias kp='KillPort'
+alias restartaudio='pulseaudio -k && sudo alsa force-reload'
 
 KillPort() {
     local pid = sudo lsof -t -i:$1
@@ -257,6 +258,7 @@ alias editbashrc='nvim ~/Linux-Setup-Scripts/linux/.bashrc'
 alias srcbashrc='source ~/.bashrc'
 alias reseti3="ResetI3"
 alias napifold="NewApiFolder"
+alias setupmonitors="sh ~/Linux-Setup-Scripts/scripts/setup_monitors.sh"
 
 
 NewApiFolder() {
