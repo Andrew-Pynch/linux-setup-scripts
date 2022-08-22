@@ -209,8 +209,7 @@ alias kp='KillPort'
 alias restartaudio='pulseaudio -k && sudo alsa force-reload'
 
 KillPort() {
-    local pid = sudo lsof -t -i:$1
-    sudo kill -9 $pid
+    fuser -k $1/tcp
 }
 
 UpdateBashRC() {
