@@ -207,6 +207,16 @@ alias mkvid='MakeVideo'
 alias mono='cd ~/Github/PX_Mono'
 alias kp='KillPort'
 alias restartaudio='pulseaudio -k && sudo alsa force-reload'
+alias rebootfakecamera='RebootFakeCamera'
+
+RebootFakeCamera() {
+    # Remove the fake camera 
+    sudo modprobe --remove v4l2loopback
+
+    # Add the fake device back 
+    sudo modprobe v4l2loopback card_label="My Fake Webcam" exclusive_caps=1
+
+}
 
 KillPort() {
     fuser -k $1/tcp
