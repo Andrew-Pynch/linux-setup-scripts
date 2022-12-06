@@ -65,6 +65,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 
 # If not running interactively, don't do anything
 case $- in
