@@ -111,6 +111,7 @@ alias ubrc='UpdateBashRC'
 alias govids='cd /mnt/d/Video'
 alias mkvid='MakeVideo'
 alias mono='cd ~/Github/PX_Mono'
+alias monoa='cd ~/Github/PX_Mono/apps/middleware/functions'
 alias kp='KillPort'
 alias restartaudio='pulseaudio -k && sudo alsa force-reload'
 alias restartfakecamera='RebootFakeCamera'
@@ -263,5 +264,4 @@ neofetch --ascii_distro ubuntu
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# alias ohmyzsh="mate ~/.oh-my-zs
