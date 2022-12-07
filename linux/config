@@ -238,7 +238,7 @@ bar {
 	position top
 	tray_output none
 	status_command /home/andrew/.local/bin/bumblebee-status \
-                -m nic load disk nvidiagpu cpu date time git \
+                -m nic load disk nvidiagpu cpu git date time \
                 -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
 		-t iceberg-rainbow
 }
