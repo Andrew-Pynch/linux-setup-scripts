@@ -232,8 +232,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 
 # finds out, if available)
-
+# /home/andrew/.local/bin/bumblebee-status
 bar {
-position top
-status_command i3status
+	font pango:Inconsolata 12
+	position top
+	tray_output none
+	status_command /home/andrew/.local/bin/bumblebee-status \
+                -m nic load disk nvidiagpu cpu date time git \
+                -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+		-t iceberg-rainbow
 }
+
+
