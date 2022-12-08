@@ -229,27 +229,30 @@ mode "resize" { # These bindings trigger as soon as you enter the resize mode
 
 bindsym $mod+r mode "resize"
 
-## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+## Screenshots in files
 
-## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
+bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
+bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
+
+## Screenshots in clipboards
+
+bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 
 # finds out, if available)
+
 # /home/andrew/.local/bin/bumblebee-status
+
 bar {
-	font pango:Inconsolata 12
-	position top
-	tray_output none
-	status_command /home/andrew/.local/bin/bumblebee-status \
-                -m nic load disk nvidiagpu cpu git date time \
-                -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-		-t iceberg-rainbow
+font pango:Inconsolata 12
+position top
+tray_output none
+status_command /home/andrew/.local/bin/bumblebee-status \
+ -m nic load disk nvidiagpu cpu git date time \
+ -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+ -t iceberg-rainbow
 }
-
-
