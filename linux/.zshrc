@@ -266,3 +266,4 @@ neofetch --ascii_distro ubuntu
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zs
+eval `dircolors /home/andrew/.dir_colors/dircolors`
