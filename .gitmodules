@@ -1,0 +1,3 @@
+[submodule "terminal-profile"]
+	path = terminal-profile
+	url = https://github.com/pixegami/terminal-profile.git

@@ -1,65 +1,118 @@
-AnacondaSetup() {
-    if [ $# -eq 0 ]
-    then
-        if [$1 == '-a']
-        then 
-            echo "Downloading anaconda..."
-            cd Downloads
-            wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
-            cd ~/Downloads 
-            chmod +x Anaconda3-2020.02-Linux-x86_64.sh
-            ./Anaconda3-2020.02-Linux-x86_64.sh
-        else
-            echo "Proceeding without Anaconda installation"
-        fi
-    else
-        echo "No arguements supplied"
-    fi
+#!/bin/bash
+# 1. Create ProgressBar function
+# 1.1 Input is currentState($1) and totalState($2)
+function ProgressBar {
+# Process data
+    let _progress=(${1}*100/${2}*100)/100
+    let _done=(${_progress}*4)/10
+    let _left=40-$_done
+# Build progressbar string lengths
+    _fill=$(printf "%${_done}s")
+    _empty=$(printf "%${_left}s")
+
+# 1.2 Build progressbar strings and print the ProgressBar line
+# 1.2.1 Output example:                           
+# 1.2.1.1 Progress : [########################################] 100%
+printf "\rProgress : [${_fill// /#}${_empty// /-}] ${_progress}%%\n"
+
+}
+# This accounts as the "totalState" variable for the ProgressBar function
+number=0
+_end=100
+
+
+
+# STARTUP
+# echo '=== BEGINNING SYSTEM CONFIGURATION ==='
+# ProgressBar ${number} ${_end}
+
+# number=10
+# ProgressBar ${number} ${_end}
+
+
+# # update && upgrade
+# echo y | sudo apt update 
+# echo y | sudo apt upgrade 
+
+
+# # apt-get
+# echo y | sudo apt-get install arandr
+# echo y | sudo apt-get install dbus-x11
+# echo y | sudo apt install git-core 
+# echo y | sudo apt install 
+# echo y | sudo apt install zsh curl
+# echo y | sudo apt install subversion
+# echo y | sudo apt install pzip-full
+# echo y | sudo apt install zsh
+# echo y | sudo apt install libfuse2
+# echo y | sudo apt install git -qq
+# echo y | sudo apt install neofetch -qq
+# echo y | sudo apt install i3-wm
+
+# number=20
+# ProgressBar ${number} ${_end}
+
+
+# # Snapplications ;-)
+# echo y | sudo snap install nvim --classic 
+# echo y | sudo snap install code --classic 
+# echo y | sudo snap install slack --channel=insider/edge
+# echo y | sudo snap install brave 
+# echo y | sudo snap install gh
+
+# number=30
+# ProgressBar ${number} ${_end}
+
+
+# # Functions
+# ConfigureShTools() {
+#     LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+# }
+
+# ConfigureNvim() {
+#     filename=nvim.appimage
+#     if [[ -f "$filename" ]];
+#     then
+#         echo "$filename is already installed."
+#     else
+#         wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+#         sudo chmod +x nvim.appimage
+#         echo "$filename has not been found"
+#     fi
+# }
+
+# ConfigureGithub() {
+# 	echo "Setting up github credentials..."
+# 	git config --global user.email "andrewpynchbusiness@gmail.com"
+# 	git config --global user.name  "Andrew Pynch"
+# }
+
+# ConfigureI3() {
+#     mkdir /home/andrew/.config/i3
+#     # wget /home/andrew/config/i3 
+# }
+
+
+CleanupTerminalConfig() {
+    echo "CLEANING UP PREVIOUS TERMINAL CONFIGURATION"
+    rm -rf .zshrc && rm -rf ~/.oh-my-zsh/ 
 }
 
-AnacondaSetup
-
-./vimSetup.sh
-
-
-
-# Other programs
-sudo apt install i3
-sudo snap install --classic code
-sudo apt install git
-sudo snap install discord
-git config --global user.email "andrewpynchbusiness@gmail.com"
-git config --global user.name "Andrew Pynch"
-sudo apt install neofetch
-sudo apt install toilet
-sudo apt install cowsay
-sudo apt install nemo # file explorer 
-# Install Brave Browser 
-sudo apt install apt-transport-https curl
-
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-sudo apt update
-
-sudo apt install brave-browser
-
-# Set some custom linux settings
-xset r rate 280 70 # 280ms delay, 70 key repeats / sec
-
-echo "To setup git with your creds sign in and... git config --global credential.helper store"
-
-cd ~/Github/linux-setup-scripts
-
-sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /snap/bin/chromium 200
-
-xdg-open https://forums.fast.ai/t/jeremys-harebrained-install-guide/43814
-xdg-open https://gist.github.com/jph00/0762f8d49c807b608f6efd69d6862bee
-
-cp .bashrc ~/.bashrc -f
-src ~/.bashrc
-
-pip install --user bumblebee-status
+ConfigureTerminal() {
+    CleanupTerminalConfig
+    sudo sh install_powerline.sh
+    sudo sh install_terminal.sh
+    sudo sh install_profile.sh
+}
 
 
+ConfigureTerminal
+# ConfigureShTools
+# ConfigureNvim
+# ConfigureGithub
+
+
+
+# number=100
+# ProgressBar ${number} ${_end}
+echo 'DONE'
