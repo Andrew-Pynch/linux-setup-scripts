@@ -40,7 +40,7 @@ echo y | sudo apt-get install suckless-tools
 echo y | sudo apt-get install arandr
 echo y | sudo apt-get install dbus-x11
 echo y | sudo apt install git-core 
-echo y | sudo apt install 
+echo y | sudo apt install ratbagd
 echo y | sudo apt install zsh curl
 echo y | sudo apt install subversion
 echo y | sudo apt install pzip-full
