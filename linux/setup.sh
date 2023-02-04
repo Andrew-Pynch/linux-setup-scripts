@@ -23,74 +23,78 @@ _end=100
 
 
 # STARTUP
-# echo '=== BEGINNING SYSTEM CONFIGURATION ==='
-# ProgressBar ${number} ${_end}
+echo '=== BEGINNING SYSTEM CONFIGURATION ==='
+ProgressBar ${number} ${_end}
 
-# number=10
-# ProgressBar ${number} ${_end}
-
-
-# # update && upgrade
-# echo y | sudo apt update 
-# echo y | sudo apt upgrade 
+number=10
+ProgressBar ${number} ${_end}
 
 
-# # apt-get
-# echo y | sudo apt-get install arandr
-# echo y | sudo apt-get install dbus-x11
-# echo y | sudo apt install git-core 
-# echo y | sudo apt install 
-# echo y | sudo apt install zsh curl
-# echo y | sudo apt install subversion
-# echo y | sudo apt install pzip-full
-# echo y | sudo apt install zsh
-# echo y | sudo apt install libfuse2
-# echo y | sudo apt install git -qq
-# echo y | sudo apt install neofetch -qq
-# echo y | sudo apt install i3-wm
-
-# number=20
-# ProgressBar ${number} ${_end}
+# update && upgrade
+echo y | sudo apt update 
+echo y | sudo apt upgrade 
 
 
-# # Snapplications ;-)
-# echo y | sudo snap install nvim --classic 
-# echo y | sudo snap install code --classic 
-# echo y | sudo snap install slack --channel=insider/edge
-# echo y | sudo snap install brave 
-# echo y | sudo snap install gh
+# apt-get
+echo y | sudo apt-get install suckless-tools
+echo y | sudo apt-get install arandr
+echo y | sudo apt-get install dbus-x11
+echo y | sudo apt install git-core 
+echo y | sudo apt install 
+echo y | sudo apt install zsh curl
+echo y | sudo apt install subversion
+echo y | sudo apt install pzip-full
+echo y | sudo apt install zsh
+echo y | sudo apt install libfuse2
+echo y | sudo apt install git -qq
+echo y | sudo apt install neofetch -qq
+echo y | sudo apt install i3-wm
 
-# number=30
-# ProgressBar ${number} ${_end}
+number=20
+ProgressBar ${number} ${_end}
 
 
-# # Functions
-# ConfigureShTools() {
-#     LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
-# }
+# Snapplications ;-)
+echo y | sudo snap install nvim --classic 
+echo y | sudo snap install code --classic 
+echo y | sudo snap install slack --channel=insider/edge
+echo y | sudo snap install discord
+echo y | sudo snap install brave 
+echo y | sudo snap install gh
 
-# ConfigureNvim() {
-#     filename=nvim.appimage
-#     if [[ -f "$filename" ]];
-#     then
-#         echo "$filename is already installed."
-#     else
-#         wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-#         sudo chmod +x nvim.appimage
-#         echo "$filename has not been found"
-#     fi
-# }
+number=30
+ProgressBar ${number} ${_end}
 
-# ConfigureGithub() {
-# 	echo "Setting up github credentials..."
-# 	git config --global user.email "andrewpynchbusiness@gmail.com"
-# 	git config --global user.name  "Andrew Pynch"
-# }
 
-# ConfigureI3() {
-#     mkdir /home/andrew/.config/i3
-#     # wget /home/andrew/config/i3 
-# }
+# Functions
+ConfigureShTools() {
+    LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+}
+
+ConfigureNvim() {
+    filename=nvim.appimage
+    if [[ -f "$filename" ]];
+    then
+        echo "$filename is already installed."
+    else
+        wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        sudo chmod +x nvim.appimage
+        echo "$filename has not been found"
+    fi
+}
+
+ConfigureGithub() {
+	echo "Setting up github credentials..."
+	git config --global user.email "andrewpynchbusiness@gmail.com"
+	git config --global user.name  "Andrew Pynch"
+}
+
+ConfigureI3() {
+    mkdir /home/andrew/.config/i3
+    sudo cp configs/i3config /home/andrew/.config/i3/config
+
+    cd ~/ && git clone https://github.com/tobi-wan-kenobi/bumblebee-status
+}
 
 
 CleanupTerminalConfig() {
@@ -107,9 +111,9 @@ ConfigureTerminal() {
 
 
 ConfigureTerminal
-# ConfigureShTools
-# ConfigureNvim
-# ConfigureGithub
+ConfigureShTools
+ConfigureNvim
+ConfigureGithub
 
 
 
