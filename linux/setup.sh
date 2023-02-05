@@ -39,6 +39,7 @@ echo y | sudo apt upgrade
 echo y | sudo apt-get install suckless-tools
 echo y | sudo apt-get install arandr
 echo y | sudo apt-get install dbus-x11
+echo y | sudo apt-get install gdebi-core
 echo y | sudo apt install nemo
 echo y | sudo apt install git-core 
 echo y | sudo apt install ratbagd
@@ -69,7 +70,9 @@ ProgressBar ${number} ${_end}
 
 # Functions
 ConfigureShTools() {
-    LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+    echo y | curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    echo y | LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 }
 
 ConfigureNvim() {
@@ -88,6 +91,10 @@ ConfigureGithub() {
 	echo "Setting up github credentials..."
 	git config --global user.email "andrewpynchbusiness@gmail.com"
 	git config --global user.name  "Andrew Pynch"
+
+    # Install github desktop
+    sudo wget https://github.com/shiftkey/desktop/releases/download/release-3.1.1-linux1/GitHubDesktop-linux-3.1.1-linux1.deb
+    echo y | sudo gdebi GitHubDesktop-linux-3.1.1-linux1.deb
 }
 
 ConfigureI3() {
