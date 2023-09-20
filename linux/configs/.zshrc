@@ -159,6 +159,7 @@ alias gcl='CloneAndrewRepo'
 alias gpl='git pull'
 alias gaa='git add --all'
 alias gam='git commit -a -m'
+alias gampu='AddCommitAndPush'
 alias gpu='git push'
 alias gba='git branch -a'
 alias gb='git branch'
@@ -230,6 +231,12 @@ ResetCommitHash() {
 CloneAndrewRepo() {
 	git clone 'https://github.com/andrew-pynch/'$1
 	cd $1
+}
+
+AddCommitAndPush() {
+	git add --all
+	git commit -a -m "$1"
+	git push
 }
 
 # Export custom prompt 
