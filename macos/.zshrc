@@ -33,6 +33,7 @@ UpdateLinuxSetupScripts() {
 }
 
 # MACOS Aliases 
+alias tm="tmux"
 alias kp='KillPort'
 KillPort() {
     lsof -ti tcp:$1 | xargs kill -9
