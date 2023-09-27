@@ -247,3 +247,5 @@ AddCommitAndPush() {
 
 neofetch --ascii_distro ubuntu
 
+alias tmux-sessionizer='~/Linux-Setup-Scripts/scripts/tmux-sessionizer.sh'
+bindkey -s '^f' 'tmux-sessionizer\n'
