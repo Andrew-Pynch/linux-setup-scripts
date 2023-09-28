@@ -281,3 +281,5 @@ export PATH="$PATH:/Users/andrewpynch/.opam/default/bin/"
 
 alias tmux-sessionizer='~/Linux-Setup-Scripts/scripts/tmux-sessionizer.sh'
 bindkey -s '^f' 'tmux-sessionizer\n'
+
+alias tma='tmux attach'
