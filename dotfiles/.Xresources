@@ -1,0 +1,14 @@
+XTerm*faceName: DejaVu Sans Mono for Powerline 
+XTerm*faceSize: 12
+
+XTerm*Background: #000000
+XTerm*Foreground: #FCF8F8
+XTerm*borderColor: #1A0E05
+XTerm*decTerminalID: vt340
+XTerm*numColorRegisters: 256
+XTerm*scaleHeight: 1.0
+XTerm*cursorBlink: false
+XTerm*vt100.selectToClipboard: true
+XTerm*vt100.internalBorder: 4
+XTerm*vt100.colorInnerBorder: true
+XTerm*vt100.forcePackedFont: true
