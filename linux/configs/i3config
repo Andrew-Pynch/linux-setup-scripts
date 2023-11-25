@@ -191,3 +191,6 @@ bar {
 		-p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
 		-t iceberg-rainbow
 }
+
+# Lock Screen
+bindsym $mod+l exec i3lock
