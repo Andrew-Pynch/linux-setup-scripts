@@ -193,4 +193,5 @@ bar {
 }
 
 # Lock Screen
-bindsym $mod+l exec i3lock
+# bindsym $mod+l exec i3lock
+bindsym $mod+l exec ~/Linux-Setup-Scripts/scripts/lock.sh
