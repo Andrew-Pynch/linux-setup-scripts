@@ -62,7 +62,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+# bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -187,7 +187,7 @@ bar {
 	position top
 	tray_output none
 	status_command /home/andrew/bumblebee-status/bumblebee-status \
-                -m nic disk:root date time pulseout pulsein\
+                -m ping disk:root date time pasink pasource sun\
 		-p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
 		-t iceberg-rainbow
 }
